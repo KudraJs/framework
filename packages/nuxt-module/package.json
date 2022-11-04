@@ -1,0 +1,18 @@
+{
+  "name": "@kudra/nuxt-module",
+  "description": "Nuxt Module for Kudra",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rimraf lib",
+    "compile": "tsc"
+  }
+}
