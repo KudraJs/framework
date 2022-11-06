@@ -1,6 +1,7 @@
 {
-  "name": "@kudra/typescript-build",
-  "description": "Custom implementation of @nuxt/typescript-build for kudra apps",
+  "name": "@kudra/cli",
+  "version": "1.0.0",
+  "description": "CLI Tool For Scaffolding Nuxt Kudra Projects",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
