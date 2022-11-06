@@ -1,7 +1,7 @@
 export default class Framework {
-  public ref: number;
+  public ref: string;
 
-  constructor(id: number) {
+  constructor(id: string) {
     this.ref = id;
   }
 }
