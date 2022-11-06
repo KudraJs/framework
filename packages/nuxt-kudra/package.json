@@ -1,5 +1,6 @@
 {
-  "name": "@kudra/nuxt-module",
+  "name": "@kudra/nuxt",
+  "version": "1.0.0",
   "description": "Nuxt Module for Kudra",
   "license": "MIT",
   "main": "lib/index.js",
