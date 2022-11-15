@@ -1,3 +1,3 @@
-export default function () {
-  console.log("Hello From @kudra/cli");
+export default function Cli() {
+  console.log("Kudra Cli");
 }

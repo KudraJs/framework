@@ -1,0 +1,46 @@
+name: Publish
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+jobs:
+  publish:
+    if: github.event.pull_request.merged == true # ONLY when the Pull Request has been merged (not discarded).
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }} # this token is available by default
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+
+      - name: Install Dependencies
+        run: yarn --prefer-offline # See - https://stackoverflow.com/a/62244232
+
+      - name: Build Packages
+        run: lerna run build
+
+      - name: "NPM Identity"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+
+      - name: "GIT Identity"
+        run: |
+          git config --global user.email "jacobgardos@gmail.com"
+          git config --global user.name "Jacob Gardos"
+
+      - name: Publish package
+        run: lerna publish --yes --conventional-commits --create-release github
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

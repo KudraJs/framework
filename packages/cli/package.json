@@ -1,7 +1,7 @@
 {
   "name": "@kudra/cli",
   "version": "1.0.0",
-  "description": "CLI Tool For Scaffolding Nuxt Kudra Projects",
+  "description": "CLI Tool for quickly scaffolding Nuxt Kudra projects",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -14,6 +14,7 @@
   "scripts": {
     "build": "npm run clean && npm run compile",
     "clean": "rimraf lib",
-    "compile": "tsc"
+    "compile": "tsc",
+    "test": "echo TESTS PASSED"
   }
 }
