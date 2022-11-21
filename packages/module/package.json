@@ -13,8 +13,25 @@
   },
   "scripts": {
     "build": "npm run clean && npm run compile",
-    "clean": "rimraf lib",
+    "clean": "rimraf lib && rimraf ./playground/.nuxt",
     "compile": "tsc",
-    "test": "echo TESTS PASSED"
+    "test": "echo TESTS PASSED",
+    "playground:dev": "nuxt ./playground"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.15.8",
+    "@nuxt/typescript-build": "^2.1.0",
+    "@types/lodash": "^4.14.189",
+    "lru-cache": "^7.14.1",
+    "nuxt": "2.15.8",
+    "type-fest": "^3.2.0"
+  },
+  "peerDependencies": {
+    "@nuxt/typescript-build": "^2.1.0",
+    "nuxt": "2.15.8"
+  },
+  "dependencies": {
+    "consola": "^2.15.3",
+    "deepmerge": "^4.2.2"
   }
 }

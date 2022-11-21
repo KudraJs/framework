@@ -1,7 +1,7 @@
 {
-  "name": "@kudra/cli",
+  "name": "@kudra/component-generator",
   "version": "1.0.0",
-  "description": "CLI Tool for quickly scaffolding Nuxt Kudra projects",
+  "description": "An @kudra/nuxt Type Generator That Generates Types For Nuxt Global Components.",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -15,9 +15,10 @@
     "build": "npm run clean && npm run compile",
     "clean": "rimraf lib",
     "compile": "tsc",
-    "test": "echo TESTS PASSED"
+    "test": "echo TESTS PASSED",
+    "playground:dev": "nuxt ./playground"
   },
-  "devDependencies": {
-    "typescript": "^4.9.3"
+  "peerDependencies": {
+    "@kudra/nuxt": "^1.0.0"
   }
 }
