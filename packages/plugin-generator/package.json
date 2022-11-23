@@ -1,7 +1,7 @@
 {
-  "name": "@kudra/cli",
+  "name": "@kudra/plugin-generator",
   "version": "1.0.0",
-  "description": "CLI Tool for quickly scaffolding Nuxt Kudra projects",
+  "description": "An @kudra/nuxt Type Generator That Generates Types For Nuxt Plugins",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -14,9 +14,10 @@
   "scripts": {
     "build": "npm run clean && npm run compile",
     "clean": "rimraf lib",
-    "compile": "tsc"
+    "compile": "tsc",
+    "playground:dev": "nuxt ./playground"
   },
-  "devDependencies": {
-    "typescript": "^4.9.3"
+  "peerDependencies": {
+    "@kudra/nuxt": "^1.0.0"
   }
 }

@@ -8,6 +8,7 @@
   "dependencies": {
     "@kudra/component-generator": "^1.0.0",
     "@kudra/nuxt": "^1.0.0",
+    "@kudra/plugin-generator": "^1.0.0",
     "core-js": "^3.25.3",
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",

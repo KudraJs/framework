@@ -15,7 +15,6 @@
     "build": "npm run clean && npm run compile",
     "clean": "rimraf lib",
     "compile": "tsc",
-    "test": "echo TESTS PASSED",
     "playground:dev": "nuxt ./playground"
   },
   "peerDependencies": {

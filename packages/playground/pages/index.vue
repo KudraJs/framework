@@ -1,13 +1,21 @@
 <template>
   <div>
     <h1>Index Page !</h1>
-    <UiBtn />
+    <AppBar position="top"></AppBar>
+    <UiBtn color="red"></UiBtn>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-export default Vue.extend({
+import { defineComponent } from "vue";
+export default defineComponent({
   name: "IndexPage",
+  async asyncData({ $plugins }) {
+    const catFact = await $plugins.$catFact();
+    console.log(catFact.fact);
+  },
+  mounted() {
+    this.$sayStuff("Mounted !");
+  },
 });
 </script>

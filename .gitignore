@@ -95,3 +95,5 @@ lib
 *.log*
 .nuxt 
 dist
+**/playground/kudra/
+**/test/**/kudra/

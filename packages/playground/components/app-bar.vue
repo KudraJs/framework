@@ -1,15 +1,14 @@
 <template>
-  <button>Ui Btn Component</button>
+  <div>AppBar</div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 export default defineComponent({
-  name: "UiBtn",
+  name: "AppBar",
   props: {
-    /** Testing Stuff */
-    color: {
-      type: String as PropType<string>,
+    position: {
+      type: String as PropType<"top" | "bottom">,
       required: true,
     },
   },

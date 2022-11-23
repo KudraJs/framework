@@ -13,9 +13,16 @@ export interface KudraOptions {
    * @default []
    */
   generators: Array<KudraGenerator>;
+  /**
+   * Path separator to use when resolving paths
+   * in .d.ts files.
+   * @default /
+   */
+  pathSeparator: string;
 }
 
 export const defaultKudraOptions: KudraOptions = {
   outputDir: "kudra",
   generators: [],
+  pathSeparator: "/",
 };

@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "lib": ["DOM", "ESNext"],
-    "module": "CommonJS",
+    "target": "ES2018",
+    "module": "ESNext",
     "moduleResolution": "Node",
+    "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
     "esModuleInterop": true,
     "strict": true,
     "noFallthroughCasesInSwitch": true,
@@ -12,7 +12,10 @@
     "outDir": "lib",
     "declaration": true,
     "sourceMap": true,
-    "types": ["@nuxt/types"]
+    "types": ["@nuxt/types", "@types/jest", "@types/figlet"]
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "vueCompilerOptions": {
+    "target": 2.7
+  }
 }

@@ -7,6 +7,7 @@ import { Consola } from "consola";
 import { Kudra } from "../kudra";
 import { KudraOptions } from "../kudra/options";
 import { Resolver } from "../resolver";
+import { TypeWriter } from "../type-writer";
 
 // prettier-ignore
 export const defineGenerator = <T extends any = any>(fn: (options: T, kudra: Kudra) => Generator<T>) => {
@@ -47,6 +48,11 @@ export abstract class Generator<T> {
    */
   public kudraOptions: KudraOptions;
 
+  /**
+   * Class containing methods useful for generating .d.ts files and their contents.s
+   */
+  public typeWriter: TypeWriter;
+
   constructor(options: T, kudra: Kudra) {
     this.nuxt = kudra.nuxt;
     this.options = options;
@@ -54,6 +60,7 @@ export abstract class Generator<T> {
     this.resolver = kudra.resolver;
     this.nuxtOptions = kudra.nuxtOptions;
     this.kudraOptions = kudra.kudraOptions;
+    this.typeWriter = kudra.typeWriter;
   }
 }
 
@@ -144,7 +151,7 @@ export interface GeneratorHooks {
    * Generating .nuxt template files
    * @see https://nuxtjs.org/docs/internals-glossary/internals-builder/#hooks
    */
-  onBuildTemplates?(params: { templateFiles: any; templateVars: any; resolve: any }): void;
+  onBuildTemplates?(params: BuildTemplatesParams): void;
   /**
    * Generating routes
    * @see https://nuxtjs.org/docs/internals-glossary/internals-builder/#hooks
@@ -214,4 +221,16 @@ export interface Component {
   level: number;
   prefetch: boolean;
   preload: boolean;
+}
+
+export interface Plugin {
+  src: string;
+  mode: "all" | "server" | "client";
+  name: string;
+}
+
+export interface BuildTemplatesParams {
+  templateFiles: any;
+  templateVars: { plugins: Plugin[] };
+  resolve: any;
 }

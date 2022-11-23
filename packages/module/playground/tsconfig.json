@@ -8,9 +8,16 @@
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
-    "outDir": "lib",
-    "declaration": true,
-    "types": ["@kudra/nuxt", "@types/jest"]
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./*"],
+      "@/*": ["./*"]
+    },
+    "types": ["@types/node", "@nuxt/types"]
   },
-  "include": ["src/**/*"]
+  "exclude": ["node_modules"],
+  "vueCompilerOptions": {
+    "target": 2.7
+  }
 }

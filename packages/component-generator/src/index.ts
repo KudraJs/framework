@@ -1,33 +1,8 @@
-import { Component, defineGenerator, Generator, Kudra } from "@kudra/nuxt";
+import { defineGenerator } from "@kudra/nuxt";
+import { ComponentGenerator } from "./generator";
+import { ComponentGeneratorOptions, defaultOptions } from "./options";
 
-export interface ComponentGeneratorOptions {
-  name: string;
-}
-
-export class ComponentGenerator extends Generator<ComponentGeneratorOptions> {
-  constructor(options: ComponentGeneratorOptions, kudra: Kudra) {
-    super(options, kudra);
-    this.validateConfig();
-  }
-
-  /** Validates that the nuxt options has global components enabled */
-  private validateConfig() {
-    if (!this.nuxtOptions.components) {
-      this.logger.warn(
-        "You must set { components: true } in your nuxt config, to use the component loader."
-      );
-    }
-  }
-
-  /**
-   * Called By Nuxt's Components Extend Hook.
-   * @param loadedComponents - The components that have been loaded by Nuxt.
-   */
-  public onComponentsExtend(loadedComponents: Component[]): void {
-    console.log("Detected Changes In Components", loadedComponents);
-  }
-}
-
-export default defineGenerator<ComponentGeneratorOptions>((...args) => {
-  return new ComponentGenerator(...args);
+export default defineGenerator<Partial<ComponentGeneratorOptions>>((...args) => {
+  const options = Object.assign({}, defaultOptions, args[0]);
+  return new ComponentGenerator(options, args[1]);
 });
