@@ -229,8 +229,21 @@ export interface Plugin {
   name: string;
 }
 
+export interface Middleware {
+  name: string;
+  src: string;
+  dst: string;
+}
+
+/**
+ * Object who's keys are the name of the layout and the value is the path to the layout file relative to .nuxt folder
+ */
+export interface Layouts {
+  [key: string]: string;
+}
+
 export interface BuildTemplatesParams {
   templateFiles: any;
-  templateVars: { plugins: Plugin[] };
+  templateVars: { plugins: Plugin[]; middleware: Middleware[]; layouts: Layouts };
   resolve: any;
 }

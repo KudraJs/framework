@@ -1,21 +1,48 @@
 <template>
-  <div>
-    <h1>Index Page !</h1>
-    <AppBar position="top"></AppBar>
-    <UiBtn color="red"></UiBtn>
+  <div class="grid">
+    <UiCardImg :src="imageUrl" alt="Cat" elevated>
+      <h1>Cat Fact</h1>
+      <p>{{ catFact.fact }}</p>
+      <UiBtn color="red" @click="showLazyCard = true">Show LazyUiCard</UiBtn>
+    </UiCardImg>
+    <UiCardImg :src="imageUrl" alt="Cat" v-if="showLazyCard">
+      <h1>LazyCard</h1>
+      <p>{{ catFact.fact }}</p>
+      <UiBtn color="red" @click="getNewFact">Get New Fact</UiBtn>
+    </UiCardImg>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-export default defineComponent({
-  name: "IndexPage",
+export default definePage({
+  layout: "auth",
+  middleware: ["auth"],
   async asyncData({ $plugins }) {
-    const catFact = await $plugins.$catFact();
-    console.log(catFact.fact);
+    const fact = await $plugins.$catFact();
+    return {
+      imageUrl: "https://cdn.mos.cms.futurecdn.net/Xm5tNGu2r7gT9WzeXqd8S9.jpg",
+      catFact: fact,
+    };
   },
-  mounted() {
-    this.$sayStuff("Mounted !");
+  data() {
+    return {
+      showLazyCard: false,
+    };
+  },
+  methods: {
+    async getNewFact() {
+      await this.$nuxt.refresh();
+    },
   },
 });
 </script>
+
+<style>
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+</style>

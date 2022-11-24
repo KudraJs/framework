@@ -27,17 +27,28 @@ export class ComponentGenerator extends Generator<ComponentGeneratorOptions> {
   private generateComponentTypes() {
     const dtsFile = this.typeWriter.createSourceFile(this.options.filename);
 
-    const componentProperties: OptionalKind<PropertySignatureStructure>[] = this.components.map((component) => {
+    const componentProperties: OptionalKind<PropertySignatureStructure>[] = [];
+
+    this.components.forEach((component) => {
       // Paths cant end in ts || tsx so remove it it.
       if (extname(component.filePath) === ".ts" || extname(component.filePath) === ".tsx") {
         component.filePath = component.filePath.replace(/\.[^/.]+$/, "");
       }
+
       const compPath = this.resolver.resolveRelative(component.filePath);
-      return {
+
+      componentProperties.push({
         kind: StructureKind.PropertySignature,
         name: `'${component.pascalName}'`,
         type: `typeof import("${compPath}").default`,
-      };
+      });
+
+      // Add the lazy version of the component
+      componentProperties.push({
+        kind: StructureKind.PropertySignature,
+        name: `'Lazy${component.pascalName}'`,
+        type: `typeof import("${compPath}").default`,
+      });
     });
 
     dtsFile.addStatements([

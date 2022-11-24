@@ -10,8 +10,6 @@ export class PluginGenerator extends Generator<PluginGeneratorOptions> {
 
   constructor(options: PluginGeneratorOptions, kudra: Kudra) {
     super(options, kudra);
-    this.logger.info("Demo Generator Initialized");
-
     // Make the definePlugin function available to the global scope
     this.typeWriter.addGlobalDeclaration(
       {

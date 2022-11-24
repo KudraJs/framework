@@ -5,14 +5,12 @@
     "moduleResolution": "Node",
     "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
     "esModuleInterop": true,
+    "allowJs": true,
+    "sourceMap": true,
     "strict": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "stripInternal": true,
     "outDir": "lib",
     "declaration": true,
-    "sourceMap": true,
-    "types": ["@nuxt/types", "@types/jest", "@types/figlet"]
+    "types": ["@kudra/nuxt", "@types/jest"]
   },
   "include": ["src/**/*"]
 }

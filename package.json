@@ -5,7 +5,12 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "clean": "yarn run clean:build && yarn run clean:test && yarn run clean:playground",
+    "clean:build": "rimraf packages/*/lib",
+    "clean:playground": "rimraf **/playground/**/dist **/playground/**/.nuxt **/playground/**/kudra",
+    "clean:test": "rimraf **/fixtures/**/dist **/fixtures/**/.nuxt **/fixtures/**/kudra ./coverage",
+    "build": "lerna run build"
   },
   "devDependencies": {
     "@types/jest": "^29.2.3",
