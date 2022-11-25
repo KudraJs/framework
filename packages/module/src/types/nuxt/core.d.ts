@@ -212,10 +212,9 @@ declare module "@nuxt/core" {
      * Registers a module. moduleOpts can be a string or an array ([src, options]).
      * If requireOnce is true and the resolved module exports meta, it prevents registering same module twice.
      * @see https://nuxtjs.org/docs/internals-glossary/internals-module-container/#addmodule-moduleopts-requireonce
-     * @param moduleOpts
-     * @param arg2
-     * @param arg3
+     * @param moduleOpts: string or an array ([src, options]) for registering a nuxt module
+     * @param requireOnce If requireOnce is true and the resolved module exports meta, it prevents registering same module twice.
      */
-    addModule(moduleOpts: any, arg2: any, arg3: any): Promise<any>;
+    addModule(moduleOpts: [string, any] | string, requireOnce: boolean): Promise<any>;
   }
 }

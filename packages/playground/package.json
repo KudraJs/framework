@@ -12,8 +12,10 @@
     "@kudra/nuxt": "^1.0.0",
     "@kudra/plugin-generator": "^1.0.0",
     "@kudra/utilities-generator": "^1.0.0",
+    "@kudra/vuex-generator": "^1.0.0",
     "core-js": "^3.25.3",
     "nuxt": "^2.15.8",
+    "nuxt-typed-vuex": "^0.3.1",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10"

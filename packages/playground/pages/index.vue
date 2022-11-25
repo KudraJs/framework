@@ -10,6 +10,8 @@
       <p>{{ catFact.fact }}</p>
       <UiBtn color="red" @click="getNewFact">Get New Fact</UiBtn>
     </UiCardImg>
+
+    <n-link to="/login">Click Me</n-link>
   </div>
 </template>
 
@@ -17,7 +19,7 @@
 export default definePage({
   layout: "auth",
   middleware: ["auth"],
-  async asyncData({ $plugins }) {
+  async asyncData({ $plugins, $accessor }) {
     const fact = await $plugins.$catFact();
     return {
       imageUrl: "https://cdn.mos.cms.futurecdn.net/Xm5tNGu2r7gT9WzeXqd8S9.jpg",
@@ -36,13 +38,3 @@ export default definePage({
   },
 });
 </script>
-
-<style>
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-</style>
