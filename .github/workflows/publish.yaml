@@ -40,7 +40,7 @@ jobs:
           git config --global user.name "Jacob Gardos"
 
       - name: Publish package
-        run: lerna publish --yes --conventional-commits --create-release github
+        run: lerna publish from-git --yes --conventional-commits --create-release github
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
