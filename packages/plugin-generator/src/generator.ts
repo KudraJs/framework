@@ -11,6 +11,7 @@ export class PluginGenerator extends Generator<PluginGeneratorOptions> {
   constructor(kudra: Kudra, options: PluginGeneratorOptions) {
     super(kudra, options);
     // Make the definePlugin function available to the global scope
+    // so that it can be used in the plugin.js template
     this.typeWriter.addGlobalDeclaration(
       {
         name: "definePlugin",
