@@ -18,8 +18,10 @@
     "build": "yarn run clean && yarn run compile",
     "pack": "yarn run build && yarn pack"
   },
+  "dependencies": {
+    "@nuxtjs/vuetify": "^1.12.3"
+  },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.12.3",
     "ts-toolbelt": "^9.6.0",
     "type-fest": "^3.2.0"
   },
