@@ -1,0 +1,27 @@
+{
+  "name": "@kudra/vuex-generator",
+  "version": "1.0.0",
+  "description": "An @kudra/nuxt Type Generator That Generates Types For The Nuxt Store",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "templates"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "compile": "tsc",
+    "build": "yarn run clean && yarn run compile",
+    "pack": "yarn run build && yarn pack"
+  },
+  "dependencies": {
+    "nuxt-typed-vuex": "^0.3.1"
+  },
+  "peerDependencies": {
+    "@kudra/nuxt": "^1.0.0"
+  }
+}

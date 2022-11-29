@@ -1,18 +1,9 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "ES6",
-    "lib": ["DOM", "ESNext"],
-    "module": "CommonJS",
-    "moduleResolution": "Node",
-    "esModuleInterop": true,
-    "strict": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "stripInternal": true,
-    "noUnusedLocals": true,
+    "module": "commonjs",
     "outDir": "lib",
-    "declaration": true,
-    "sourceMap": true
+    "declaration": true
   },
   "include": ["src/**/*"]
 }

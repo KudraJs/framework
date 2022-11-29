@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
+    "esModuleInterop": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "strict": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./*"],
+      "@/*": ["./*"]
+    },
+    "types": ["@nuxt/vue-app", "@types/node", "@nuxt/types", "@nuxtjs/vuetify"],
+    "resolveJsonModule": true
+  },
+
+  "exclude": ["node_modules", "**/templates/**/*"],
+  "vueCompilerOptions": {
+    "target": 2.7
+  }
+}

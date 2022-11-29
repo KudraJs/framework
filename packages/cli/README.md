@@ -1,3 +1,3 @@
-# `@kudra/nuxt`
+# @kudra/cli
 
-> CLI Tool For Scaffolding Nuxt Kudra Projects
+> Cli tool for quickly scaffolding nuxt kudra projects

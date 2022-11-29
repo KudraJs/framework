@@ -1,0 +1,23 @@
+{
+  "name": "@kudra/component-generator",
+  "version": "1.0.0",
+  "description": "An @kudra/nuxt Type Generator That Generates Types For Nuxt Global Components.",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "compile": "tsc",
+    "build": "yarn run clean && yarn run compile",
+    "pack": "yarn run build && yarn pack"
+  },
+  "peerDependencies": {
+    "@kudra/nuxt": "^1.0.0"
+  }
+}
