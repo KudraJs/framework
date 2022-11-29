@@ -41,7 +41,7 @@ jobs:
           git checkout -B ${GITHUB_REF##*/}
           git reset --hard #fixes bug with modify files in the bin directory
       - name: Publish package
-        run: npx lerna publish from-package --yes --conventional-commits --create-release github
+        run: lerna publish from-package --yes --conventional-commits --create-release github
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
