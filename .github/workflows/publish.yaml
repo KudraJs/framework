@@ -38,9 +38,10 @@ jobs:
         run: |
           git config --global user.email "jacobgardos@gmail.com"
           git config --global user.name "Jacob Gardos"
-
+          git checkout -B $CI_COMMIT_BRANCH 
+          git reset --hard #fixes bug with modify files in the bin directory
       - name: Publish package
-        run: npx lerna publish from-git --yes --conventional-commits --create-release github
+        run: npx lerna publish --yes --conventional-commits --create-release github
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
