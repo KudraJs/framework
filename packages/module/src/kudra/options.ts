@@ -19,10 +19,18 @@ export interface KudraOptions {
    * @default /
    */
   pathSeparator: string;
+
+  /**
+   * Whether or not to automatically add the @nuxt/typescript-build module to buildModules.
+   * If you already have this module in your buildModules and it registered before
+   * this generator, then the generator will not add it again.
+   */
+  autoLoadTypescript: boolean;
 }
 
 export const defaultKudraOptions: KudraOptions = {
   outputDir: "kudra",
   generators: [],
   pathSeparator: "/",
+  autoLoadTypescript: true,
 };

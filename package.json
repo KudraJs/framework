@@ -4,20 +4,8 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {
-    "test": "jest",
-    "clean": "yarn run clean:build && yarn run clean:test && yarn run clean:playground",
-    "clean:build": "rimraf packages/*/lib",
-    "clean:playground": "rimraf **/playground/**/dist **/playground/**/.nuxt **/playground/**/kudra",
-    "clean:test": "rimraf **/fixtures/**/dist **/fixtures/**/.nuxt **/fixtures/**/kudra ./coverage",
-    "build": "lerna run build"
-  },
   "devDependencies": {
-    "@types/jest": "^29.2.3",
-    "jest": "^29.3.1",
     "lerna": "^6.0.1",
-    "rimraf": "^3.0.2",
-    "ts-jest": "^29.0.3",
-    "ts-node": "^10.9.1"
+    "rimraf": "^3.0.2"
   }
 }

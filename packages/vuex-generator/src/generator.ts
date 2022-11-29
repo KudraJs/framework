@@ -6,10 +6,8 @@ import { VuexGeneratorOptions } from "./options";
 const META_PATH = "@kudra/vuex-generator";
 
 export class VuexGenerator extends Generator<VuexGeneratorOptions> {
-  constructor(options: VuexGeneratorOptions, kudra: Kudra) {
-    super(options, kudra);
-    this.logger.info("VuexGenerator Initialized");
-
+  constructor(kudra: Kudra, options: VuexGeneratorOptions) {
+    super(kudra, options);
     this.typeWriter.addGlobalDeclaration(
       {
         name: "defineStore",
@@ -56,8 +54,12 @@ export class VuexGenerator extends Generator<VuexGeneratorOptions> {
       return;
     }
 
-    // Add nuxt-typed-vuex
-    this.nuxt.moduleContainer.addModule("nuxt-typed-vuex", true);
+    // Auto-load the TypedVuex Module
+    const typedVuexModule = this.nuxt.moduleContainer.requiredModules["nuxt-typed-vuex"];
+    if (!typedVuexModule && this.options.autoLoadTypedVuex) {
+      // Add nuxt-typed-vuex
+      this.nuxt.moduleContainer.addModule("nuxt-typed-vuex", true);
+    }
 
     // Add the store.d.ts file
     const storePath = this.nuxt.resolver.resolveAlias(this.nuxtOptions.dir.store);

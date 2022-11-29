@@ -1,5 +1,7 @@
+import { OptionalKind, PropertySignatureStructure } from "ts-morph";
 import { DefineComponent } from "vue/types/v3-define-component";
 
+export type GlobalComponentStructure = OptionalKind<PropertySignatureStructure>;
 export type GlobalComponent<Props = {}, Slots = {}> = DefineComponent<Props, { $scopedSlots: Slots }>;
 export type Slotted<T extends object | undefined = undefined> = (_: T) => any;
 

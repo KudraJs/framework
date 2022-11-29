@@ -1,7 +1,14 @@
 import figlet from "figlet";
 import jetpack from "fs-jetpack";
 import _ from "lodash";
-import { CodeBlockWriter, OptionalKind, Project, SourceFile, SourceFileCreateOptions, VariableDeclarationStructure } from "ts-morph";
+import {
+  CodeBlockWriter,
+  OptionalKind,
+  Project,
+  SourceFile,
+  SourceFileCreateOptions,
+  VariableDeclarationStructure,
+} from "ts-morph";
 import webpack from "webpack";
 import { Kudra } from "../kudra";
 import { Resolver } from "../resolver";
@@ -29,7 +36,10 @@ export class TypeWriter {
    * @param filePath Relative path to a .d.ts file inside the outputDir
    * @param options ts-morph SourceFileCreateOptions
    */
-  public createSourceFile(filePath: string, options?: SourceFileCreateOptions & { disclaimerComment?: boolean }): SourceFile {
+  public createSourceFile(
+    filePath: string,
+    options?: SourceFileCreateOptions & { disclaimerComment?: boolean }
+  ): SourceFile {
     const mergedOptions = Object.assign(
       {
         overwrite: true,
@@ -95,7 +105,12 @@ export class TypeWriter {
    * @param outputFilePath The relative path to a .d.ts file inside the kudra outputDir
    * @param options The options to pass to the template when compiling it with lodash
    */
-  public createTemplateFile(templateFilePath: string, outputFilePath: string, options: object, disclaimerComment = true) {
+  public createTemplateFile(
+    templateFilePath: string,
+    outputFilePath: string,
+    options: object,
+    disclaimerComment = true
+  ) {
     const template = jetpack.read(templateFilePath);
 
     if (!template) {

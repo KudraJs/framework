@@ -20,5 +20,4 @@ export type Layout<T extends string, Strict extends boolean = false> = Strict ex
 export * from "./functions/defineComponent";
 export * from "./functions/defineLayout";
 export * from "./functions/defineMiddleware";
-export * from "./functions/defineNuxtConfig";
 export * from "./functions/definePage";

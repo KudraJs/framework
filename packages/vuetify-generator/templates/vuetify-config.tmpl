@@ -1,0 +1,7 @@
+type DefinedConfig = typeof import("<%= nuxtConfigPath %>")["default"];
+
+declare module "<%= META_PATH %>" {
+  export interface DefineConfig extends DefinedConfig {}
+}
+
+export {}

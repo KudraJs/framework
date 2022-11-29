@@ -1,18 +1,9 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "ES2018",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
-    "esModuleInterop": true,
-    "strict": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "stripInternal": true,
     "outDir": "lib",
     "declaration": true,
-    "sourceMap": true,
-    "types": ["@nuxt/types", "@types/jest", "@types/figlet"]
+    "rootDir": "src"
   },
   "include": ["src/**/*"]
 }

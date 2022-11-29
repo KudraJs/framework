@@ -8,8 +8,8 @@ import { definePlugin } from "./runtime";
 export class PluginGenerator extends Generator<PluginGeneratorOptions> {
   private plugins: Plugin[] = [];
 
-  constructor(options: PluginGeneratorOptions, kudra: Kudra) {
-    super(options, kudra);
+  constructor(kudra: Kudra, options: PluginGeneratorOptions) {
+    super(kudra, options);
     // Make the definePlugin function available to the global scope
     this.typeWriter.addGlobalDeclaration(
       {

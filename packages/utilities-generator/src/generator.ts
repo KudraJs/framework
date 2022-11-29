@@ -1,15 +1,19 @@
 import { BuildTemplatesParams, Generator, Kudra, Layouts, Middleware } from "@kudra/nuxt";
-import { ModuleDeclarationKind, OptionalKind, PropertySignatureStructure, StatementStructures, StructureKind } from "ts-morph";
+import {
+  ModuleDeclarationKind,
+  OptionalKind,
+  PropertySignatureStructure,
+  StatementStructures,
+  StructureKind,
+} from "ts-morph";
 import { defineMiddleware } from "./functions/defineMiddleware";
 import { UtilitiesGeneratorOptions } from "./options";
 
 const META_PATH = "@kudra/utilities-generator";
 
 export class UtilitiesGenerator extends Generator<UtilitiesGeneratorOptions> {
-  constructor(options: UtilitiesGeneratorOptions, kudra: Kudra) {
-    super(options, kudra);
-    this.logger.info("Utilities Generator Initialized !");
-
+  constructor(kudra: Kudra, options: UtilitiesGeneratorOptions) {
+    super(kudra, options);
     this.typeWriter.addGlobalDeclaration(
       {
         name: "definePage",
@@ -103,7 +107,8 @@ export class UtilitiesGenerator extends Generator<UtilitiesGeneratorOptions> {
 
   private generateMiddlewareProperties(middleware: Middleware[]): OptionalKind<PropertySignatureStructure> {
     const middlewareNames = this.constructUnionStr(middleware.map((middleware) => middleware.name));
-    const middlewareStr = middleware.length > 0 ? `<${middlewareNames}, ${this.isStrict}>` : `<never, ${this.isStrict}>`;
+    const middlewareStr =
+      middleware.length > 0 ? `<${middlewareNames}, ${this.isStrict}>` : `<never, ${this.isStrict}>`;
 
     const middlewareProps: OptionalKind<PropertySignatureStructure> = {
       name: "middleware",

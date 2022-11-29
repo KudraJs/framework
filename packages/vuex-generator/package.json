@@ -6,18 +6,22 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib"
+    "lib",
+    "templates"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "npm run clean && npm run compile",
     "clean": "rimraf lib",
-    "compile": "tsc"
+    "compile": "tsc",
+    "build": "yarn run clean && yarn run compile",
+    "pack": "yarn run build && yarn pack"
+  },
+  "dependencies": {
+    "nuxt-typed-vuex": "^0.3.1"
   },
   "peerDependencies": {
-    "@kudra/nuxt": "^1.0.0",
-    "nuxt-typed-vuex": "^0.3.1"
+    "@kudra/nuxt": "^1.0.0"
   }
 }

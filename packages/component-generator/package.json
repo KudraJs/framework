@@ -12,10 +12,10 @@
     "access": "public"
   },
   "scripts": {
-    "build": "npm run clean && npm run compile",
     "clean": "rimraf lib",
     "compile": "tsc",
-    "playground:dev": "nuxt ./playground"
+    "build": "yarn run clean && yarn run compile",
+    "pack": "yarn run build && yarn pack"
   },
   "peerDependencies": {
     "@kudra/nuxt": "^1.0.0"

@@ -10,10 +10,10 @@ import { Resolver } from "../resolver";
 import { TypeWriter } from "../type-writer";
 
 // prettier-ignore
-export const defineGenerator = <T extends any = any>(fn: (options: T, kudra: Kudra) => Generator<T>) => {
-  return (options:T) => {
+export const defineGenerator = <T extends any = any>(fn: (kudra: Kudra, options?: T)  => Generator<T>) => {
+  return (options?: T) => {
       return function (kudra: Kudra) {
-          return fn(options,kudra);
+          return fn(kudra, options);
       }
   }
 }
@@ -53,7 +53,7 @@ export abstract class Generator<T> {
    */
   public typeWriter: TypeWriter;
 
-  constructor(options: T, kudra: Kudra) {
+  constructor(kudra: Kudra, options: T) {
     this.nuxt = kudra.nuxt;
     this.options = options;
     this.logger = kudra.createLogger(this.constructor.name);

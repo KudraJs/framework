@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "playground:dev": "nuxt",
-    "playground:build": "nuxt build",
-    "playground:start": "nuxt start"
+    "dev": "nuxt"
   },
   "dependencies": {
     "@kudra/component-generator": "^1.0.0",
@@ -13,15 +11,11 @@
     "@kudra/plugin-generator": "^1.0.0",
     "@kudra/utilities-generator": "^1.0.0",
     "@kudra/vuex-generator": "^1.0.0",
-    "core-js": "^3.25.3",
+    "core-js": "^3.25.0",
     "nuxt": "^2.15.8",
-    "nuxt-typed-vuex": "^0.3.1",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10"
-  },
-  "devDependencies": {
-    "@nuxt/types": "^2.15.8",
-    "@nuxt/typescript-build": "^2.1.0"
+    "vue-template-compiler": "^2.7.10",
+    "@kudra/vuetify-generator": "^1.0.0"
   }
 }

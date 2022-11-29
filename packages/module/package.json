@@ -6,29 +6,30 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib"
+    "lib",
+    "types"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "npm run clean && npm run compile",
-    "clean": "rimraf lib && rimraf ./playground/.nuxt",
+    "clean": "rimraf lib",
     "compile": "tsc",
-    "playground:dev": "nuxt ./playground"
+    "build": "yarn run clean && yarn run compile",
+    "playground:dev": "nuxt ./playground",
+    "pack": "yarn run build && yarn pack"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/vuetify": "^1.12.3",
     "@types/figlet": "^1.5.5",
     "@types/lodash": "^4.14.189",
     "lru-cache": "^7.14.1",
-    "nuxt": "2.15.8",
     "playwright": "^1.28.0",
     "type-fest": "^3.2.0"
   },
   "peerDependencies": {
-    "@nuxt/typescript-build": "^2.1.0",
     "nuxt": "2.15.8"
   },
   "dependencies": {

@@ -1,14 +1,15 @@
 import { Component, Generator, Kudra } from "@kudra/nuxt";
 import { extname } from "path";
-import { OptionalKind, PropertySignatureStructure, StructureKind } from "ts-morph";
+import { StructureKind } from "ts-morph";
 import { ComponentGeneratorOptions } from "./options";
+import { GlobalComponentStructure } from "./runtime";
 
 export class ComponentGenerator extends Generator<ComponentGeneratorOptions> {
-  private components: Component[] = [];
+  private nuxtComponentStructures: GlobalComponentStructure[] = [];
+  private addedComponentStructure: GlobalComponentStructure[] = [];
 
-  constructor(options: ComponentGeneratorOptions, kudra: Kudra) {
-    super(options, kudra);
-    this.logger.info("Component Generator Initialized");
+  constructor(kudra: Kudra, options: ComponentGeneratorOptions) {
+    super(kudra, options);
     this.validateConfig();
   }
 
@@ -27,30 +28,6 @@ export class ComponentGenerator extends Generator<ComponentGeneratorOptions> {
   private generateComponentTypes() {
     const dtsFile = this.typeWriter.createSourceFile(this.options.filename);
 
-    const componentProperties: OptionalKind<PropertySignatureStructure>[] = [];
-
-    this.components.forEach((component) => {
-      // Paths cant end in ts || tsx so remove it it.
-      if (extname(component.filePath) === ".ts" || extname(component.filePath) === ".tsx") {
-        component.filePath = component.filePath.replace(/\.[^/.]+$/, "");
-      }
-
-      const compPath = this.resolver.resolveRelative(component.filePath);
-
-      componentProperties.push({
-        kind: StructureKind.PropertySignature,
-        name: `'${component.pascalName}'`,
-        type: `typeof import("${compPath}").default`,
-      });
-
-      // Add the lazy version of the component
-      componentProperties.push({
-        kind: StructureKind.PropertySignature,
-        name: `'Lazy${component.pascalName}'`,
-        type: `typeof import("${compPath}").default`,
-      });
-    });
-
     dtsFile.addStatements([
       {
         kind: StructureKind.Module,
@@ -60,7 +37,7 @@ export class ComponentGenerator extends Generator<ComponentGeneratorOptions> {
             kind: StructureKind.Interface,
             name: "GlobalComponents",
             isExported: true,
-            properties: componentProperties,
+            properties: [...this.nuxtComponentStructures, ...this.addedComponentStructure],
           },
         ],
       },
@@ -71,8 +48,36 @@ export class ComponentGenerator extends Generator<ComponentGeneratorOptions> {
     dtsFile.saveSync();
   }
 
+  public addComponentStructure(componentStructure: GlobalComponentStructure): void {
+    this.addedComponentStructure.push(componentStructure);
+  }
+
   public onComponentsExtend(loadedComponents: Component[]): void {
-    this.components = loadedComponents;
+    const nuxtComponentStructures: GlobalComponentStructure[] = [];
+
+    loadedComponents.forEach((component) => {
+      // Paths cant end in ts || tsx so remove it it.
+      if (extname(component.filePath) === ".ts" || extname(component.filePath) === ".tsx") {
+        component.filePath = component.filePath.replace(/\.[^/.]+$/, "");
+      }
+
+      const compPath = this.resolver.resolveRelative(component.filePath);
+
+      nuxtComponentStructures.push({
+        kind: StructureKind.PropertySignature,
+        name: `'${component.pascalName}'`,
+        type: `typeof import("${compPath}").default`,
+      });
+
+      // Add the lazy version of the component
+      nuxtComponentStructures.push({
+        kind: StructureKind.PropertySignature,
+        name: `'Lazy${component.pascalName}'`,
+        type: `typeof import("${compPath}").default`,
+      });
+    });
+
+    this.nuxtComponentStructures = nuxtComponentStructures;
     this.generateComponentTypes();
   }
 }

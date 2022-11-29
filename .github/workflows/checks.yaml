@@ -24,4 +24,4 @@ jobs:
           npx lerna bootstrap
 
       - name: Run Tests
-        run: yarn test
+        run: lerna run test

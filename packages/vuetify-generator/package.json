@@ -1,0 +1,30 @@
+{
+  "name": "@kudra/vuetify-generator",
+  "version": "1.0.0",
+  "description": "An @kudra/nuxt Type Generator That Provides Types For Vuetify 2 Global Components",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "templates"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "compile": "tsc",
+    "build": "yarn run clean && yarn run compile",
+    "pack": "yarn run build && yarn pack"
+  },
+  "devDependencies": {
+    "type-fest": "^3.2.0",
+    "ts-toolbelt": "^9.6.0",
+    "@nuxtjs/vuetify": "^1.12.3"
+  },
+  "peerDependencies": {
+    "@kudra/nuxt": "^1.0.0",
+    "@kudra/component-generator": "^1.0.0"
+  }
+}
