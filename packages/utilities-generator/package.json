@@ -1,6 +1,6 @@
 {
   "name": "@kudra/utilities-generator",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A @kudra/nuxt Type Generator That Provides Utility Types And Functions",
   "license": "MIT",
   "main": "lib/index.js",
