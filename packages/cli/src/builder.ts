@@ -40,7 +40,7 @@ export class Builder {
     const templateVars: Record<string, any> = {
       name: this.config.name,
       ui: this.config.ui,
-      version: "1.0.0",
+      version: version,
     };
     const dstSrc = jetpack.cwd(this.args.outputDir);
 
