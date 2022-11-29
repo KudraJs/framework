@@ -6,7 +6,7 @@ import { CliError } from "./error";
 
 export interface KudraArgs {
   /**
-   * The projects output directory
+   * The projects output directory path.
    */
   outputDir: string;
 }
