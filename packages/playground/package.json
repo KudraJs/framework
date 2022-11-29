@@ -1,13 +1,13 @@
 {
   "name": "playground",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "scripts": {
     "dev": "nuxt"
   },
   "dependencies": {
     "@kudra/component-generator": "^1.1.0",
-    "@kudra/nuxt": "^1.2.0",
+    "@kudra/nuxt": "^1.2.1",
     "@kudra/plugin-generator": "^1.2.0",
     "@kudra/utilities-generator": "^1.1.0",
     "@kudra/vuetify-generator": "^1.2.0",

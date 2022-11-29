@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/KudraJs/framework/compare/v1.2.0...v1.2.1) (2022-11-29)
+
+### Bug Fixes
+
+- Fixes dependency issue with @kudra/nuxt and @nuxt/typescript-build ([ae7e6e3](https://github.com/KudraJs/framework/commit/ae7e6e36cc06801ce7f286c013f9dff602117e9e))
+
 # [1.2.0](https://github.com/KudraJs/framework/compare/v1.1.0...v1.2.0) (2022-11-29)
 
 ### Bug Fixes
