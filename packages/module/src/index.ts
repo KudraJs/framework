@@ -23,6 +23,7 @@ export default function (this: ModuleContainer, moduleOptions: KudraOptions) {
   const kudra = new Kudra(this, kudraOptions);
 
   // Check if there is a tsconfig.json file in the root of the project
+  // If there is, we assume that the user is using TypeScript
   const tsConfigPath = resolve(this.options.rootDir, "tsconfig.json");
   if (jetpack.exists(tsConfigPath) !== "file") {
     throw new Error("Kudra requires a tsconfig.json file in the root of your project");
