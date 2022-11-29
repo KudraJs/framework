@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4](https://github.com/KudraJs/framework/compare/v1.2.3...v1.2.4) (2022-11-29)
+
+### Bug Fixes
+
+- Added ts-toolbelt as dependency to @kudra/vuetify-generator ([c7b57ff](https://github.com/KudraJs/framework/commit/c7b57fff748def70e711ce039eca84ad81d9c50b))
+
 ## [1.2.3](https://github.com/KudraJs/framework/compare/v1.2.2...v1.2.3) (2022-11-29)
 
 **Note:** Version bump only for package @kudra/vuetify-generator
