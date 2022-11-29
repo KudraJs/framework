@@ -21,7 +21,6 @@
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.8",
-    "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/vuetify": "^1.12.3",
     "@types/figlet": "^1.5.5",
     "@types/lodash": "^4.14.189",
@@ -33,6 +32,7 @@
     "nuxt": "2.15.8"
   },
   "dependencies": {
+    "@nuxt/typescript-build": "^2.1.0",
     "consola": "^2.15.3",
     "deepmerge": "^4.2.2",
     "figlet": "^1.5.2",
