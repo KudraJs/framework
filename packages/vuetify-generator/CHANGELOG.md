@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/KudraJs/framework/compare/v1.1.0...v1.2.0) (2022-11-29)
+
+### Bug Fixes
+
+- Fixed @nuxtjs/vuetify dependency issue ([1d2f859](https://github.com/KudraJs/framework/commit/1d2f8596fdd637b7e5c3af71cf477356949b2a63))
+
 # 1.1.0 (2022-11-29)
 
 ### Features

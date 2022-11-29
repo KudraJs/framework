@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/KudraJs/framework/compare/v1.1.0...v1.2.0) (2022-11-29)
+
+### Bug Fixes
+
+- Fixed @nuxtjs/vuetify dependency issue ([1d2f859](https://github.com/KudraJs/framework/commit/1d2f8596fdd637b7e5c3af71cf477356949b2a63))
+
+### Features
+
+- :hammer: Added @kudra/vuetify-generator auto-load @nuxtjs/vuetify ([bdb28e8](https://github.com/KudraJs/framework/commit/bdb28e80eca73e838bf2b6c8ddf3adc45e2d77ae))
+- Init ([fda2dcb](https://github.com/KudraJs/framework/commit/fda2dcb751bdf228747627913dd69ef15a11bd04))
+
 # 1.1.0 (2022-11-29)
 
 ### Features
