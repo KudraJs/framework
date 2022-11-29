@@ -1,17 +1,17 @@
 {
   "name": "playground",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "private": true,
   "scripts": {
     "dev": "nuxt"
   },
   "dependencies": {
-    "@kudra/component-generator": "^1.1.0",
-    "@kudra/nuxt": "^1.2.1",
-    "@kudra/plugin-generator": "^1.2.0",
-    "@kudra/utilities-generator": "^1.1.0",
-    "@kudra/vuetify-generator": "^1.2.0",
-    "@kudra/vuex-generator": "^1.1.0",
+    "@kudra/component-generator": "^1.2.2",
+    "@kudra/nuxt": "^1.2.2",
+    "@kudra/plugin-generator": "^1.2.2",
+    "@kudra/utilities-generator": "^1.2.2",
+    "@kudra/vuetify-generator": "^1.2.2",
+    "@kudra/vuex-generator": "^1.2.2",
     "core-js": "^3.25.0",
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
