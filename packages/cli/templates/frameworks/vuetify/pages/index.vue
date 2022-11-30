@@ -1,7 +1,15 @@
 <template>
-  <div>Vuetify</div>
+  <VContainer>
+    <VRow>
+      <VCol cols="12">
+        <h1>Hello World</h1>
+      </VCol>
+    </VRow>
+  </VContainer>
 </template>
 
 <script lang="ts">
-export default defineComponent({});
+export default definePage({
+  // ...
+});
 </script>

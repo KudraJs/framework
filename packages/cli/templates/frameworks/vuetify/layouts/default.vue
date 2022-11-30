@@ -8,5 +8,7 @@
 </template>
 
 <script lang="ts">
-export default defineComponent({});
+export default defineLayout({
+  // ...
+});
 </script>
