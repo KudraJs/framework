@@ -1,11 +1,9 @@
 <template>
-  <div>
-    Nuxt + Kudra 
-  </div>
+  <div>Nuxt + Kudra</div>
 </template>
 
 <script lang="ts">
-export default defineComponent({
-    
-})
+export default definePage({
+  // ...
+});
 </script>
