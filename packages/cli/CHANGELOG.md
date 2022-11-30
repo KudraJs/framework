@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.5](https://github.com/KudraJs/framework/compare/v1.2.4...v1.2.5) (2022-11-30)
+
+### Bug Fixes
+
+- :hammer: Fixed CLI Templates To Use Correct Utility Functions ([ac2d749](https://github.com/KudraJs/framework/commit/ac2d749af7f4a85098a6d3dbd0316b20b9044f1c))
+
 ## [1.2.4](https://github.com/KudraJs/framework/compare/v1.2.3...v1.2.4) (2022-11-29)
 
 **Note:** Version bump only for package create-kudra-app

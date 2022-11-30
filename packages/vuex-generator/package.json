@@ -1,6 +1,6 @@
 {
   "name": "@kudra/vuex-generator",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "An @kudra/nuxt Type Generator That Generates Types For The Nuxt Store",
   "license": "MIT",
   "main": "lib/index.js",
