@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/KudraJs/framework/compare/v1.2.5...v1.3.0) (2022-12-30)
+
+### Features
+
+- :sparkles: Added async functions to the defineNuxtConfig function ([d27e6db](https://github.com/KudraJs/framework/commit/d27e6db17eec5c43ac9c19de8dfe7d03e425d297))
+
 ## [1.2.5](https://github.com/KudraJs/framework/compare/v1.2.4...v1.2.5) (2022-11-30)
 
 **Note:** Version bump only for package playground
