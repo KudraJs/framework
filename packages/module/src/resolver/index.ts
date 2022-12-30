@@ -19,6 +19,13 @@ export class Resolver {
   }
 
   /**
+   * The absolute path to the nuxt.config.js/ts file.
+   */
+  public get nuxtConfigPath(): string {
+    return this.sanitizePathSeparator(this.kudra.nuxt.options._nuxtConfigFile);
+  }
+
+  /**
    * Cleans the path separator found in a path. Useful to avoid
    * errors in .d.ts files where paths contain '\\' as their separator
    * @param path Path to sanitize
