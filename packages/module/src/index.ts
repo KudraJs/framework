@@ -45,7 +45,20 @@ export default function (this: ModuleContainer, moduleOptions: KudraOptions) {
   performanceLogger.success(`Kudra Generated Types In ${roundedTime}ms`);
 }
 
-export const defineNuxtConfig = <T extends NuxtConfig>(config: T): T => {
+export type ConfigOptions = (() => Promise<NuxtConfig>) | NuxtConfig;
+
+export const defineNuxtConfig = <T extends ConfigOptions>(config: T): T extends () => Promise<infer R> ? R : T => {
+  const isAsync = typeof config === "function";
+
+  // Added support for async config
+  if (isAsync) {
+    const asyncConfig = async () => {
+      const resolvedConfig = await config();
+      return defineNuxtConfig(resolvedConfig);
+    };
+    return asyncConfig as any;
+  }
+
   // Add @kudra/nuxt to the buildModules array
   if (!config.buildModules) {
     config.buildModules = [];
@@ -53,7 +66,7 @@ export const defineNuxtConfig = <T extends NuxtConfig>(config: T): T => {
   if (!config.buildModules.includes("@kudra/nuxt")) {
     config.buildModules.push("@kudra/nuxt");
   }
-  return config;
+  return config as any;
 };
 
 export * from "./generators";
