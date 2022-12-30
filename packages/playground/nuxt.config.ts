@@ -10,13 +10,16 @@ const demoAsyncTimout = async () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(true);
-    }, 6000);
+    }, 1000);
   });
 };
 
 export default defineNuxtConfig(async () => ({
+  srcDir: "client/",
+  buildDir: "client/.nuxt",
   components: await demoAsyncTimout(),
   kudra: {
+    outputDir: "client/kudra",
     generators: [Utilities(), Components(), Plugins(), Vuex(), Vuetify()],
   },
   vuetify: {
