@@ -1,6 +1,6 @@
 import { ComponentGenerator } from "@kudra/component-generator";
 import { Generator, Kudra } from "@kudra/nuxt";
-import path from "path";
+import path, { extname } from "path";
 import { StructureKind } from "ts-morph";
 import { VuetifyGeneratorOptions } from "./options";
 
@@ -52,13 +52,26 @@ export class VuetifyGenerator extends Generator<VuetifyGeneratorOptions> {
   }
 
   private generateConfigTypes() {
-    const nuxtConfigPath = this.nuxt.resolver.resolveAlias("nuxt.config");
-    const relativePath = this.resolver.resolveRelative(nuxtConfigPath);
+    const relativePath = this.resolver.resolveRelative(this.resolver.nuxtConfigPath);
 
-    const templateFile = path.resolve(__dirname, "../templates", "vuetify-config.tmpl");
-    this.typeWriter.createTemplateFile(templateFile, this.options.vuetifyConfigName, {
-      META_PATH,
-      nuxtConfigPath: relativePath,
-    });
+    // Get the extension of the nuxt.config file
+    const extension = extname(relativePath);
+
+    // If the extension is .js warn the user that dynamic theme types will not be generated.
+    if (extension === ".js") {
+      this.logger.warn(
+        "Dynamic theme types will not be generated because the nuxt.config file is a .js file. Please convert it to a .ts file to enable this feature."
+      );
+      return;
+    }
+
+    // If the extension is .ts remove the extension and generate the config types
+    if (extension === ".ts") {
+      const templateFile = path.resolve(__dirname, "../templates", "vuetify-config.tmpl");
+      this.typeWriter.createTemplateFile(templateFile, this.options.vuetifyConfigName, {
+        META_PATH,
+        nuxtConfigPath: relativePath.replace(extension, ""),
+      });
+    }
   }
 }
